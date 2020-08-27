@@ -1,0 +1,92 @@
+{%  extends 'home/main.html' %}
+
+{% block usercontent %}
+{% load mathfilters %}
+
+<div class="col-md">
+    <div class="card card-body">
+
+<table class="table table-sm">
+
+<tr><th>Type</th>
+    {% for a in allleaves%}
+    <td>{{a.name}}</td>
+    {% endfor %}
+</tr>
+<tr><th>All</th>
+    {% for x in allleaves%}
+    <td>{{x.Number_of_Leaves}}</td>
+    {% endfor %}
+</tr>
+<tr><th>Used</th>
+	{% for c,b in usedLeave.items%}
+	<td>{{b}}</td>
+	{% endfor %}
+</tr>
+<tr><th>Availbale</th>
+	{% for x in allleaves%}
+	{% for c,b in usedLeave.items%}
+	{% if forloop.parentloop.counter == forloop.counter %}
+	<td>{{x.Number_of_Leaves|sub:b}}</td>
+	{%endif%}
+	{% endfor %}
+	{% endfor %}
+
+</tr>
+</table>
+        </div>
+
+    </div>
+</div>
+
+
+<br>
+<div class="row">
+<div class="col">
+    <div class="card card-body">
+        <form method="get">
+            {{myFilter.form}}
+
+        <button class="btn btn-primary btn-sm" type="submit">Search</button>
+      </form>
+    </div>
+</div>
+
+</div>
+<br>
+
+
+<div class="row">
+	<div class="col-md">
+		<div class="card card-body">
+			<table class="table table-sm">
+				<tr>
+                    
+					<th>Leave Type</th>
+					<th>Date</th>
+					<th>Start Date</th>
+					<th>End Date</th>
+					<th>Start Time</th>
+					<th>From Time</th>
+					<th> Reason</th>
+					<th>Status</th>
+					<th>Created Date</th>
+				</tr>
+				{% for apply in applys%}
+				<tr>
+					<td>{{apply.leave}}</td>
+					<td>{{apply.date}}</td>
+					<td>{{apply.from_date}}</td>
+					<td>{{apply.to_date}}</td>
+					<td>{{apply.from_time}}</td>
+					<td>{{apply.to_time}}</td>
+					<td>{{apply.reason}}</td>
+					<td>{{apply.status}}</td>
+					<td>{{apply.date_created}}</td>
+				</tr>
+				{% endfor %}
+
+			</table>
+		</div>
+	</div>
+{% endblock %}

@@ -1,0 +1,43 @@
+{%  extends 'home/headmain.html' %}
+
+{% block leavecontent %}
+
+		<br><br>
+		{% include 'home/status.html'%}
+			<div class="row">
+				<div class="col-md">
+					<div class="card card-body">
+						<table class="table">
+							<tr>
+							
+								<th>Name</th>
+								<th>Leave Type</th>
+								<th>Action</th>
+								<th>Date Requested</th>
+								<th>More Details</th>
+							</tr>
+							<tbody>
+								
+								{% for i in pendingLeave %}								
+									<tr>
+									
+										<td>{{i.employee}}</td>
+										<td>{{i.leave}}</td>
+										<td>{{i.status}}</td>
+										<td>{{i.date_created}}</td>
+										<td> <a href="{% url 'Head_Side_Emp_View' i.employee_id %}" class= "btn btn-primary btn-sm">View</a>
+		 								 <a href="{% url 'updateStatus' i.id %}" class= "btn btn-primary btn-sm">Action</a></td>
+										
+									</tr>					
+								{% endfor%}
+							</tbody>
+							
+						</table>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	
+
+{% endblock %}

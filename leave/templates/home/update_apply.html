@@ -1,0 +1,103 @@
+{%  extends 'home/headmain.html' %}
+{% load crispy_forms_tags %}
+
+{% block applycontent %}
+<br>
+
+<div class="row">
+	<div class="col-md">
+        <div class="container">
+		<div class="card card-body" style="width: 650px;">
+            <form action="" method="POST" autocomplete="on" id="emp_apply">
+                {% csrf_token %}
+      
+<br>
+        <div class="row">
+            <div class="col-md-6">
+                {{form.leave|as_crispy_field}}
+            </div>
+            <div class="col-md-6" id="date">
+                {{form.date|as_crispy_field}}
+            </div>
+            
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-6" id="from_date">
+                {{form.from_date|as_crispy_field}}
+            </div>
+            <div class="col-md-6" id="to_date">
+                {{form.to_date|as_crispy_field}}
+            </div>
+
+        </div>
+        
+                <div class="row">
+                    <div class="col-md-6" id="from_time">
+                        {{form.from_time|as_crispy_field}}
+                    </div>
+                    <div class="col-md-6" id ="to_time">
+                        {{form.to_time|as_crispy_field}}
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        {{form.reason|as_crispy_field}}
+                    </div>     
+                </div>   
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md">
+    <div class="card bg-secondary text-white">
+        <div class="card-body">
+          
+            <div class="row">
+                <div class="col-md-6">
+                    {{form.employee|as_crispy_field}}
+                </div>
+    
+                <div class="col-md-6">
+                    {{form.status|as_crispy_field}}
+                </div>
+        
+            </div>
+        </div>
+        <div>
+           <center> <button type="submit" class="btn btn-success">Submit</button> </center>
+        </div>
+    </div>  
+
+    </form>
+    <script>
+        $(document).ready(function () {
+            $('#emp_apply select[name="leave"]').change(function () {
+                if ($('#emp_apply select[name="leave"] option:selected').val() == '4') {
+                    $('#to_date').hide();
+                    $('#from_date').hide();
+                    $('#to_time').show();
+                    $('#from_time').show();
+                    $('#date').show();
+
+                }
+                else {
+                    $('#to_time').hide();
+                    $('#from_time').hide();
+                    $('#date').hide();
+                    $('#to_date').show();
+                    $('#from_date').show();
+                }
+ 
+            });
+            });
+    </script>
+    
+{% endblock %}
+
+
+
+

@@ -1,0 +1,67 @@
+{%  extends 'home/headmain.html' %}
+
+{% block leave1content %}
+
+		<br>
+		<div class="row">
+			<div class="col">
+				<div class="card card-body">
+					<form method="get">
+						{{myFilter.form}}
+		
+					<button class="btn btn-primary btn-sm" type="submit">Search</button>
+				  </form>
+				</div>
+			</div>
+			
+		</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="card card-body">
+						
+						<table class="table">
+							<tr>
+								<th>Name</th>
+								<th>Leave Type</th>
+								<th>Start Date</th>
+								<th>End Date</th>
+								<th>Start Time</th>
+								<th>End Time</th>
+								<th>Status</th>
+								<th>Date Requested</th>
+								<th>More Details</th>
+							</tr>
+							<tbody>
+								{% for a in respondedLeave %}
+									<tr>
+										<td>{{a.employee}}</td>
+										<td>{{a.leave}}</td>
+										<td>{{a.from_date}}</td>
+										<td>{{a.to_date}}</td>
+										<td>{{a.from_time}}</td>
+										<td>{{a.to_time}}</td>
+										<td>{{a.status}}</td>
+										<td>{{a.date_created}}</td>
+										<td> <a href="{% url 'Head_Side_Emp_View' a.employee_id %}" class= "btn btn-primary btn-sm">View</a></td>
+										
+									</tr>
+	
+								{% endfor%}
+							</tbody>
+							
+						</table>
+					</div>
+				</div>
+
+				
+							</tbody>
+							
+						</table>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	
+
+{% endblock %}

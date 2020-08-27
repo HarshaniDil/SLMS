@@ -1,0 +1,48 @@
+{%  extends 'home/main.html' %}
+
+
+{% block Profilecontent %}
+
+<style>
+    .profile-pic{
+        max-width: 200px;
+        max-height: 200px;
+        margin: 0 auto;
+        border-radius: 50%;
+    }
+</style>
+<br>
+<div class="row">
+    <div class="col-md-3">
+        {% if messages %}
+        <ul class="messages">
+          <div class="alert alert-success" role="alert">
+            {% for message in messages %}
+            <center>{{ message }} </center>
+            {% endfor %}
+          </div>
+            
+        </ul>
+        {% endif %}
+        <div class="card card-body">
+
+            <hr>
+            <h3 style="text-align: center">My Account</h3>
+            <hr>
+            <img src="{{request.user.employee.profile_pic.url}}" alt="" class="profile-pic">
+        </div>
+
+    </div>
+    
+    <div class="col-md-9">
+        <div class="card card-body">
+            <form action="" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{form.as_p}}
+                <input type="submit" class="btn btn-primary" name="Update Information">
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

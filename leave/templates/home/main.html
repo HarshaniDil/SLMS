@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ 
+  <title>SLMS-SUSL</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+<style>
+    #total_leaves{
+        background-color:  #ebeff5;
+    }
+    #Approved_Leaves{
+        background-color:#aba9a9;
+    }
+    #Pending_Leaves{
+        background-color: #aba9a9;
+    }
+    body{
+        background-color: #ebeff5;
+      
+    }
+    html { overflow-x: hidden; }
+
+    .hello-msg{
+      font-size: 18px;
+      color: #fff;
+      margin-right: 20px;
+
+    }
+
+
+</style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">SLMS-SUSL</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav" >
+          <ul class="navbar-nav" style="align-items: right;">
+            <li>
+              <a class="nav-link" href="{% url 'user-page' %}">Leave_Details <span class="sr-only">(current)</span></a>
+            </li>
+            <li>
+              <a class="nav-link" href="{% url 'account' %}">My_Profile</a>
+            </li>
+      
+            <li>
+              <a class="nav-link" href="{% url 'apply2' user.id%}">Apply_Leaves</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+            </li>
+          </ul>
+        </div>
+        <span class="hello-msg">{{request.user.username}}</span>
+        
+      </nav>
+    
+
+
+
+{% block applycontent %}
+
+{% endblock %}
+
+
+{% block LeaveHistorycontent %}
+
+{% endblock %}
+
+{% block Profilecontent %}
+
+{% endblock %}
+
+{% block usercontent %}
+
+{% endblock %}
+</body>
+
+

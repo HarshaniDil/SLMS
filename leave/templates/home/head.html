@@ -1,0 +1,42 @@
+{% extends 'home/headmain.html' %}
+
+{% block headcontent %}
+
+<br><br>
+{% include 'home/status.html'%}
+<div class="row">
+    <div class="col-md-5">
+        <h5>Employees:</h5> 
+        <hr>
+        <div class="card card-body">
+            <a href="" class="btn btn-primary btn-sm btn-block">Create Employee</a>
+            <table class="table table-sm">
+                <tr>
+                    <th></th>
+                    <th>Employee</th>
+                    <th>Leaves</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="col-md-7">
+        <h5>Last 5 Leaves</h5>
+        <hr>
+        <div class="card card-body">
+            <a href="" class="btn btn-primary btn-sm btn-block">Crate Leaves</a>
+
+            <table class="table table-sm">
+                <tr>
+                    <th>Leave</th>
+                    <th>Date Request</th>
+                    <th>Status</th>
+                    <th>Update</th>
+                    <th>Remove</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
