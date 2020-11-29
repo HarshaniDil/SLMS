@@ -74,7 +74,7 @@ class CreateUserForm(UserCreationForm):
         fields = ['username','email','password1','password2']
 
 class EmployeeForm(ModelForm):
-        
+     
     class Meta:
         model = employee
         fields = '__all__'
